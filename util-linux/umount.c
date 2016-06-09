@@ -61,6 +61,12 @@ static struct mntent *getmntent_r(FILE* stream, struct mntent* result,
 #define OPT_REMOUNT             (1 << 5)
 #define OPT_ALL                 (ENABLE_FEATURE_UMOUNT_ALL ? (1 << 6) : 0)
 
+#define MNT_FORCE   0x00000001  /* Attempt to forcibily umount */
+#define MNT_DETACH  0x00000002  /* Just detach from the tree */
+#define MNT_EXPIRE  0x00000004  /* Mark for expiry */
+
+
+
 int umount_main(int argc, char **argv) MAIN_EXTERNALLY_VISIBLE;
 int umount_main(int argc UNUSED_PARAM, char **argv)
 {
